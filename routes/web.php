@@ -39,18 +39,18 @@ Route::get('bagus',function()
     return view('toko');
 });
 
-// Route Parameter
-// Route::get('pesan/{makan}/{minuman}/{harga}',function($mkn,$mnm,$hrg){
-//     return 'Makanan Yang Saya Pesan adalah =' .$mkn.'<br>'
-//     .'minuman yang saya pesan adalah =' .$mnm.'<br>'
-//     .'harganya adalah = '.$hrg;
+//Route Parameter
+Route::get('pesan/{makan}/{minuman}/{harga}',function($mkn,$mnm,$hrg){
+    return 'Makanan Yang Saya Pesan adalah =' .$mkn.'<br>'
+    .'minuman yang saya pesan adalah =' .$mnm.'<br>'
+    .'harganya adalah = '.$hrg;
 
-// });
+});
 
-// // Route Optional Parameter
-// Route::get('halo/{nama?}',function($nama='Nurhadi Aldo'){
-//     return 'Haloo Nama Saya Adalah ' .$nama;
-// });
+// Route Optional Parameter
+Route::get('halo/{nama?}',function($nama='Nurhadi Aldo'){
+    return 'Haloo Nama Saya Adalah ' .$nama;
+});
 
 
 Route::get('pesan/{a?}/{b?}/{c?}',function($mkn=null,$minum=null,$hrg=null){
@@ -70,6 +70,38 @@ Route::get('pesan/{a?}/{b?}/{c?}',function($mkn=null,$minum=null,$hrg=null){
     return "anda belum memesan sesuatau";
 
 });
+
+Route::get('/testmodel', function() {
+    $query = App\Post::all();
+    return $query;
+});
+
+Route::get('/testmodel', function() {
+    $query = App\Post::find(1);
+    return $query;
+});
+
+Route::get('/testmodel2', function() {
+    $query = App\Post::where('title','like','%cepat nikah ')->get();
+    return $query;
+});
+
+Route::get('/testmodel3', function() {
+    $post = App\Post::find(1);
+    $post->title = "Ciri Keluarga Sakinah";
+    $post->save();
+    return $post;
+});
+
+Route::get('/testmodel4', function() {
+    $post = new App\Post;
+    $post->title = "7 Amalan Pembuka Jodoh";
+    $post->content = "shalat malam, sedekah,puasa sunah,silahturahmi,senyum,doa,tobat";
+    $post->save();
+    return $post;
+});
+
+
 
 
 
