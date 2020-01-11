@@ -100,10 +100,39 @@ Route::get('/testmodel4', function() {
     $post->save();
     return $post;
 });
+Route::get('/penggajian',function(){
+    $query = App\Gaji::all();
+    return $query;
+});
 
 
+Route::get('pengjaian-2',function(){
+    $gaji = App\Penggajian::where('agama','=','islam')->get();
+    return $gaji;
+});
 
+Route::get('penggajian-3',function(){
+    $gaji = App\penggjian::select('id','nama','agama')
+    ->where('agama','=','islam')->get();
+    return $gaji;
+});
 
+Route::get('penggajian{id}',function($id){
+    $gaji = App\penggajian::find($id);
+    return $gaji;
+});
+
+Route::get('tambah datapenggajian',function(){
+    $gaji = new App\penggajian();
+    $gaji->nama='Indah Mambo';
+    $gaji->jabatan='sekretaris';
+    $gaji->jk='perempuan';
+    $gaji->alamat='Bojong Honey';
+    $gaji->gaji=500000;
+    $gaji->agama='islam';
+    $gaji->save();
+    return $gaji;
+});
 
 
 

@@ -13,8 +13,14 @@ class Penggajian extends Migration
      */
     public function up()
     {
-        Schema::create('post', function (Blueprint $table) {
+        Schema::create('penggajians', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nama');
+            $table->string('jabatan');
+            $table->string('jk');
+            $table->string('alamat');
+            $table->string('agama');
+            $table->string('totalgaji');
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ class Penggajian extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post');
+        Schema::dropIfExists('penggajians');
     }
 }
