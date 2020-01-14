@@ -134,5 +134,15 @@ Route::get('tambah datapenggajian',function(){
     return $gaji;
 });
 
+ Route::get('hai','SekolahController@hallo');
+ Route::get('anyuk','SekolahController@dunia');
+ Route::get('warnakucing/{warna?}','SekolahController@jeniskucing');
+ Route::get('warung/{menu?}/{harga?}','SekolahController@warungnasi');
 
+//CRUD BOOK
+Route::get('book','BookController@index');
+Route::get('book-create/{jdl}','BookController@create');
+Route::get('book/{id}','BookController@show');
+Route::get('book-edit/{id}/{jdl}','BookController@edit');
+Route::get('book-delete/{id}','BookController@delete');
 
