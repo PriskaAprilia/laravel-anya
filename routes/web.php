@@ -146,3 +146,12 @@ Route::get('book/{id}','BookController@show');
 Route::get('book-edit/{id}/{jdl}','BookController@edit');
 Route::get('book-delete/{id}','BookController@delete');
 
+//Artikel
+Route::get('artikel','ArtikelController@index');
+Route::get('artikel/create','ArtikelController@create');
+Route::get('artikel','ArtikelController@store');
+Route::get('artikel/{id}','ArtikelController@show');
+Route::get('artikel/{id}/edit','ArtikelController@edit');
+
+
+
