@@ -153,5 +153,11 @@ Route::get('artikel','ArtikelController@store');
 Route::get('artikel/{id}','ArtikelController@show');
 Route::get('artikel/{id}/edit','ArtikelController@edit');
 
+// Passing Data
+Route::get('passing','PracticeController@pass');
+Route::get('passing1','PracticeController@pass1');
+Route::get('passing2','PracticeController@pass2');
+Route::get('passing3','BaranggController@index');
+
 
 
